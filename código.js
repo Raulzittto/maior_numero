@@ -6,9 +6,11 @@ process.stdin.on("data", function (data) {
   numero = numero.split("");
   for (let i = 0; i < numero.length; i++) {
     for (let j = 0; j < numero.length; j++) {
-      let aux = numero[i];
-      numero[i] = numero[j];
-      numero[j] = aux;
+      if (numero[j] < numero[i]) {
+        let aux = numero[i];
+        numero[i] = numero[j];
+        numero[j] = aux;
+      }
       if (!maior.includes(numero.join(""))) maior.push(numero.join(""));
     }
   }
